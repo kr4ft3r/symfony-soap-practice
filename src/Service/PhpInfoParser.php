@@ -29,10 +29,11 @@ class PhpInfoParser
      * Get a single value from the phpinfo() parser by field name, JSON encoded if value is array
      * @param string $field Field name
      * @param int $flags Optional flags for phpinfo() parameter
-     * @return string Field value
+     * @return string|null Field value
      */
-    public function getFieldValue(string $field, int $flags=INFO_ALL): string
+    public function getFieldValue(string $field, int $flags=INFO_ALL): ?string
     {
+        if( !isset($this->getPhpInfo($flags)[$field]) ) return null;
         $value = $this->getPhpInfo($flags)[$field];
         if(is_array($value)) return json_encode($value);
         return $value;
