@@ -7,9 +7,35 @@ use OutCompute\PHPInfo\PHPInfo;
 
 class PhpInfoParser
 {
+
+    private PHPInfo $phpInfo;
+
+    public function __construct()
+    {
+        $this->phpInfo = new PHPInfo();
+    }
+
+    /**
+     * Get all fields from phpinfo() parser
+     * @param int $flags Optional flags for phpinfo() parameter
+     * @return array phpinfo() as associative array
+     */
+    public function getAll(int $flags=INFO_ALL): array
+    {
+        return $this->getPhpInfo($flags);
+    }
+
+    /**
+     * Get a single value from the phpinfo() parser by field name, JSON encoded if value is array
+     * @param string $field Field name
+     * @param int $flags Optional flags for phpinfo() parameter
+     * @return string Field value
+     */
     public function getFieldValue(string $field, int $flags=INFO_ALL): string
     {
-        return $this->getPhpInfo($flags)[$field];
+        $value = $this->getPhpInfo($flags)[$field];
+        if(is_array($value)) return json_encode($value);
+        return $value;
     }
 
     /**
@@ -22,9 +48,8 @@ class PhpInfoParser
         ob_start();
         phpinfo($flags);
         $buffer = ob_get_clean();
-        $phpInfo = new PHPInfo();
-        $phpInfo->setText($buffer);
-        return $phpInfo->get();
+        $this->phpInfo->setText($buffer);
+        return $this->phpInfo->get();
     }
 
 }

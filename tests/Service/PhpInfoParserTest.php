@@ -4,7 +4,7 @@
 namespace App\Tests\Service;
 
 use PHPUnit\Framework\TestCase;
-use App\Service;
+use App\Service\PhpInfoParser;
 
 class PhpInfoParserTest extends TestCase
 {
@@ -14,9 +14,24 @@ class PhpInfoParserTest extends TestCase
      */
     public function testParserSystemField()
     {
-        $parser = new Service\PhpInfoParser();
+        $parser = new PhpInfoParser();
         $system = $parser->getFieldValue('System');
         $this->assertStringContainsString(php_uname('s'), $system); // ie "Linux" is found in system field
+    }
+
+    public function testParserGetAllReturnsPopulatedArray()
+    {
+        $parser = new PhpInfoParser();
+        $infoFields = $parser->getAll();
+        $this->assertIsArray($infoFields);
+        $this->assertNotCount(0, $infoFields);
+    }
+
+    public function testParserConfigurationFieldIsEncodedIntoString()
+    {
+        $parser = new PhpInfoParser();
+        $configuration = $parser->getFieldValue('Configuration');
+        $this->assertIsString($configuration);
     }
 
     /**

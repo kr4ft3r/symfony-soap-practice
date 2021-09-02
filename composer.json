@@ -13,7 +13,8 @@
         "symfony/framework-bundle": "5.3.*",
         "symfony/runtime": "5.3.*",
         "symfony/yaml": "5.3.*",
-        "outcompute/phpinfo": "1.0.0"
+        "outcompute/phpinfo": "1.0.0",
+        "ext-json": "*"
     },
     "config": {
         "optimize-autoloader": true,

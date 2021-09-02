@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e3ce1a8e44a7a9fa004d594f69d1757",
+    "content-hash": "4669e7a3b991d5b442138a4c9111d265",
     "packages": [
         {
             "name": "outcompute/phpinfo",
@@ -5029,7 +5029,8 @@
     "platform": {
         "php": ">=7.4",
         "ext-ctype": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
