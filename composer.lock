@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "22db35cbe604e70a60c8f005f6fb1498",
+    "content-hash": "4e3ce1a8e44a7a9fa004d594f69d1757",
     "packages": [
+        {
+            "name": "outcompute/phpinfo",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/outcompute/PHPInfo.git",
+                "reference": "b483de2aee65ebd5ed450a5ad3bbf0f156e9953d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/outcompute/PHPInfo/zipball/b483de2aee65ebd5ed450a5ad3bbf0f156e9953d",
+                "reference": "b483de2aee65ebd5ed450a5ad3bbf0f156e9953d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OutCompute\\PHPInfo\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "outcompute",
+                    "email": "gkumarrahul@gmail.com"
+                }
+            ],
+            "description": "Get the output of phpinfo() as an array.",
+            "keywords": [
+                "array",
+                "php",
+                "phpinfo"
+            ],
+            "time": "2017-02-18T14:58:03+00:00"
+        },
         {
             "name": "psr/cache",
             "version": "1.0.1",
@@ -4989,10 +5027,10 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "1.1.0"
 }
