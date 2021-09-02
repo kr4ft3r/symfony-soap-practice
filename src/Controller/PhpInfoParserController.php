@@ -31,10 +31,12 @@ class PhpInfoParserController extends AbstractController
     /**
      * @Route("/")
      */
-    public function test()
+    public function test(PhpInfoParser $phpInfo)
     {
+        //$system = $phpInfo->getFieldValue('System'); // Fails in a same way as soapTest() called from SOAP request
         $response = new Response();
-        $response->setContent("hello");
+        //$response->setContent($system);
+        $response->setContent("This works");
         return $response;
     }
 
