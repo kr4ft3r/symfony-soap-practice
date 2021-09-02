@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:tns="urn:phpinfoparserservicewsdl"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             targetNamespace="urn:phpinfoparserservicewsdl">
+
+    <types>
+        <xsd:schema targetNamespace="urn:phpinfoparserwsdl">
+            <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/"/>
+        </xsd:schema>
+    </types>
+
+    <message name="soapTestRequest">
+        <part name="name" type="xsd:string"/>
+    </message>
+
+    <message name="soapTestResponse">
+        <part name="return" type="xsd:string"/>
+    </message>
+
+    <portType name="phpinfoparserwsdlPortType">
+        <operation name="soapTest">
+            <documentation>Testing SOAP operation</documentation>
+            <input message="tns:soapTestRequest"/>
+            <output message="tns:soapTestResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="phpinfoparserwsdlBinding" type="tns:phpinfoparserwsdlPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="soapTest">
+            <soap:operation soapAction="urn:arnleadservicewsdl#soapTest" style="rpc"/>
+
+            <input>
+                <soap:body use="encoded" namespace="urn:phpinfoparserwsdl"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+
+            <output>
+                <soap:body use="encoded" namespace="urn:phpinfoparserwsdl"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="phpinfoparserwsdl">
+        <port name="phpinfoparserwsdlPort" binding="tns:phpinfoparserwsdlBinding">
+            <soap:address location="https://127.0.0.1:8000/index.php/phpinfo"/>
+        </port>
+    </service>
+</definitions>

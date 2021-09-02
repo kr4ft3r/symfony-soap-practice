@@ -15,6 +15,11 @@ class PhpInfoParser
         $this->phpInfo = new PHPInfo();
     }
 
+    public function soapTest()
+    {
+        return $this->getPhpInfo()['System'];
+    }
+
     /**
      * Get all fields from phpinfo() parser
      * @param int $flags Optional flags for phpinfo() parameter

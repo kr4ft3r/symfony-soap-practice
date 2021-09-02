@@ -15,7 +15,7 @@ class PhpInfoParserController extends AbstractController
      */
     public function index(PhpInfoParser $phpInfo)
     {
-        $soapServer = new \SoapServer("path/to/phpinfo.wsdl");
+        $soapServer = new \SoapServer(dirname(__FILE__).'/../../web/soap/phpinfo.wsdl');
         $soapServer->setObject($phpInfo);
 
         $response = new Response();
@@ -25,6 +25,16 @@ class PhpInfoParserController extends AbstractController
         $soapServer->handle();
         $response->setContent(ob_get_clean());
 
+        return $response;
+    }
+
+    /**
+     * @Route("/")
+     */
+    public function test()
+    {
+        $response = new Response();
+        $response->setContent("hello");
         return $response;
     }
 
