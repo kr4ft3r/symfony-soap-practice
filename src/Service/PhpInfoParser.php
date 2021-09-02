@@ -17,7 +17,8 @@ class PhpInfoParser
 
     public function soapTest()
     {
-        return $this->getPhpInfo()['System'];
+        return "This of course works well";
+        //return $this->getPhpInfo()['System']; // Causes error described here: https://github.com/outcompute/PHPInfo/issues/1
     }
 
     /**

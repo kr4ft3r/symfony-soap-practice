@@ -51,7 +51,7 @@
 
     <service name="phpinfoparserwsdl">
         <port name="phpinfoparserwsdlPort" binding="tns:phpinfoparserwsdlBinding">
-            <soap:address location="https://127.0.0.1:8000/index.php/phpinfo"/>
+            <soap:address location="https://localhost:8000/phpinfo"/>
         </port>
     </service>
 </definitions>
